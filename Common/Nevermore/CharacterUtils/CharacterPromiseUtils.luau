@@ -8,7 +8,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Promise = require(ReplicatedStorage.Packages.Promise)
 local Trove = require(ReplicatedStorage.Packages.Trove)
 
-local PromiseTypes = require(ReplicatedStorage.Modules.Types.PromiseTypes)
+local PromiseTypes = require(ReplicatedStorage.Common.Types.PromiseTypes)
 
 local CharacterPromiseUtils = {}
 
