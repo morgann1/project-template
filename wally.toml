@@ -1,0 +1,13 @@
+[package]
+name = "owner-name/project-name"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[place]
+shared-packages = "game.ReplicatedStorage.Packages"
+
+[dependencies]
+t = "osyrisrblx/t@3.0.0"
+
+[server-dependencies]
