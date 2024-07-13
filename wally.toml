@@ -1,5 +1,5 @@
 [package]
-name = "owner-name/project-name"
+name = "morgann1/project-template"
 version = "0.1.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
