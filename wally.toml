@@ -8,6 +8,7 @@ realm = "shared"
 shared-packages = "game.ReplicatedStorage.Packages"
 
 [dependencies]
-t = "osyrisrblx/t@3.0.0"
+Promise = "jsdotlua/roblox-lua-promise@3.5.0"
+Trove = "sleitnick/trove@1.4.0"
 
 [server-dependencies]
