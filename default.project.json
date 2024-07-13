@@ -9,6 +9,11 @@
             "Packages": {
                 "$className": "Folder",
                 "$path": "Packages"
+            },
+            "Common": {
+                "$className": "Folder",
+                "$path": "Common",
+                "$ignoreUnknownInstances": true
             }
         },
         "ServerStorage": {
