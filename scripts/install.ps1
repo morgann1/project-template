@@ -1,32 +1,32 @@
-echo "🚀 Running 'aftman install'"
+echo "[INFO] Installing dependencies using 'aftman'"
 aftman install
 
-echo "🚀 Running 'wally install'"
+echo "[INFO] Installing packages using 'wally'"
 wally install
 
-echo "🚀 Generating Rojo sourcemap"
+echo "[INFO] Generating Rojo sourcemap"
 rojo sourcemap -o sourcemap.json default.project.json
 
-if (Test-Path -Path "./Packages") {
-    echo "🚀 Generating types for Packages/ via wally-package-types"
-    wally-package-types -s sourcemap.json Packages/
+# Define an array for directories that need wally-package-types and stylua
+$directories = @("./Packages", "./ServerPackages")
 
-    echo "🚀 Styling Packages/ via stylua"
-    stylua Packages/
+foreach ($dir in $directories) {
+    if (Test-Path -Path $dir) {
+        echo "[INFO] Processing $dir"
+        echo "   - Generating types using 'wally-package-types'"
+        wally-package-types -s sourcemap.json $dir
+
+        echo "   - Formatting code using 'stylua'"
+        stylua $dir
+    }
 }
 
-if (Test-Path -Path "./ServerPackages") {
-    echo "🚀 Generating types for ServerPackages/ via wally-package-types"
-    wally-package-types -s sourcemap.json ServerPackages/
+# Special case for React.lua
+$reactPath = "./Packages/React.lua"
+if (Test-Path -Path $reactPath) {
+    echo "[INFO] Modifying $reactPath to set _G.__DEV__"
 
-    echo "🚀 Styling ServerPackages/ via stylua"
-    stylua ServerPackages/
-}
-
-if (Test-Path -Path "./Packages/React.lua") {
-    echo "🚀 Editing Packages/React.lua to include _G.__DEV__"
-
-    $reactContents = "_G.__DEV__ = game:GetService('RunService'):IsStudio()`n"
-    $reactContents = $reactContents + (Get-Content -Path .\Packages\React.lua -Encoding ASCII -Raw)
-    Set-Content -Path .\Packages\React.lua -Value $reactContents -Encoding ASCII
+    $reactContents = "_G.__DEV__ = game:GetService('RunService'):IsStudio()`n" + (Get-Content -Path $reactPath -Encoding ASCII -Raw)
+    Set-Content -Path $reactPath -Value $reactContents -Encoding ASCII
+    echo "[SUCCESS] Modified $reactPath successfully"
 }
