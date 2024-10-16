@@ -14,6 +14,11 @@
                 "$className": "Folder",
                 "$path": "Shared/Utility",
                 "$ignoreUnknownInstances": true
+            },
+            "Game": {
+                "$className": "Folder",
+                "$path": "Shared/Game",
+                "$ignoreUnknownInstances": true
             }
         },
         "ServerStorage": {
