@@ -1,6 +1,6 @@
 --[=[
 	Utility for Roblox character objects that involve promises.
-	@class CharacterPromiseUtils
+	@class CharacterUtils
 ]=]
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -8,9 +8,9 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Promise = require(ReplicatedStorage.Packages.Promise)
 local Trove = require(ReplicatedStorage.Packages.Trove)
 
-local PromiseTypes = require(ReplicatedStorage.Common.Types.PromiseTypes)
+local PromiseTypes = require(ReplicatedStorage.Game.PromiseTypes)
 
-local CharacterPromiseUtils = {}
+local CharacterUtils = {}
 
 --[=[
 	Returns a promise that will resolve once a character exists.
@@ -18,9 +18,7 @@ local CharacterPromiseUtils = {}
 	@param player Player
 	@return Promise<Model>
 ]=]
-function CharacterPromiseUtils.promiseCharacter(player: Player): PromiseTypes.TypedPromise<Model>
-	assert(typeof(player) == "Instance", "Bad player")
-
+function CharacterUtils.promiseCharacter(player: Player): PromiseTypes.TypedPromise<Model>
 	local trove = Trove.new()
 	
 	local promise: PromiseTypes.Promise = Promise.new(function (resolve, reject)
@@ -40,4 +38,4 @@ function CharacterPromiseUtils.promiseCharacter(player: Player): PromiseTypes.Ty
 	return promise
 end
 
-return CharacterPromiseUtils
+return CharacterUtils

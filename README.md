@@ -15,7 +15,7 @@ $ cd [name-here]
 2. run the following
 
 ```bash
-$ ./scripts/install.ps1
+$ ./install.ps1
 ```
 
 3. sync game to roblox studio via rojo

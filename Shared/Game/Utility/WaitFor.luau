@@ -6,7 +6,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 local Promise = require(ReplicatedStorage.Packages.Promise)
-local PromiseTypes = require(ReplicatedStorage.Common.Types.PromiseTypes)
+local PromiseTypes = require(ReplicatedStorage.Game.PromiseTypes)
 
 local DEFAULT_TIMEOUT = 60
 

@@ -10,9 +10,9 @@
                 "$className": "Folder",
                 "$path": "Packages"
             },
-            "Common": {
+            "Utility": {
                 "$className": "Folder",
-                "$path": "Common",
+                "$path": "Shared/Utility",
                 "$ignoreUnknownInstances": true
             }
         },
