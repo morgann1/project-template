@@ -9,7 +9,6 @@ shared-packages = "game.ReplicatedStorage.Packages"
 
 [dependencies]
 Promise = "jsdotlua/roblox-lua-promise@3.5.0"
-Trove = "sleitnick/trove@1.4.0"
 
 [server-dependencies]
 ProfileService = "grilme99/profileservice@1.0.0"
